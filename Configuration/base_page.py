@@ -1,3 +1,4 @@
+import json
 import time
 from telnetlib import EC
 
@@ -13,16 +14,22 @@ class BasePage(DriverFactory):
         self.driver=driver
 
     # Explicit Waits generic for all project
+    # try:
+    #     # wait 10 seconds before looking for element
+    #     element = WebDriverWait(driver, 10).until(
+    #         EC.presence_of_element_located((By.ID, "myDynamicElement"))
+    #     )
+    # finally:
+    #     # else quit
+    #     driver.quit()
+    # #should insert login function:
 
-    try:
-        # wait 10 seconds before looking for element
-        element = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.ID, "myDynamicElement"))
-        )
-    finally:
-        # else quit
-        driver.quit()
-    #should insert login function:
+
+    #here should insert call to JSON with user name and password
 
 
-    #should insert call to JSON with user name and password
+    with open("C:/Benny\Python/test_automation/Configuration/conf_json.json") as json_file:
+        data = json.load(json_file)
+        print(data)
+
+
